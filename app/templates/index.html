@@ -1,13 +1,29 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Radio GPT</title>
+        <title>RadioGPT</title>
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/index.css') }}" />
+        <script type= "text/javascript" src="{{ url_for('static',filename='javascript/autoscroll.js') }}"></script>
+        <script type= "text/javascript" src="{{ url_for('static',filename='javascript/queries.js') }}"></script>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <link rel="icon" type="image/x-icon" href="/static/images/logo-outline.png">
+        <div class="navbar">
+            <img class="navbar-logo" src="/static/images/logo-outline.png">
+            <div class="navbar-settings">
+                <a href="{{ url_for('index') }}" class="navbar-settings-link">Login</a>
+                <a href="{{ url_for('index') }}" class="navbar-settings-link">Settings</a>
+            </div>
+        </div>
     </head>
     <body>
-        <div class="intro-name">Radio GPT</div>
-        <br>
-        <button class="test-query" onclick="window.location.href = '/test' ; "">Generate new Vaporeon copypasta</button>
+        <h1 class="intro-name">RadioGPT</h1>
+        <form id="query">
+            <div id="query-location" class="query-location">
+                <textarea id="user-query-input" placeholder="Ask me anything..."></textarea>
+            </div>
+        </form>
+        <div id="conversation-area" class="conversation">
+        </div>
     </body>
 
 </html>
