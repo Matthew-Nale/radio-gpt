@@ -56,7 +56,7 @@ body {
 .navbar-settings-link:hover {
     background: rgb(187, 187, 187);
     border: 10cqh solid rgb(187, 187, 187);
-    box-shadow: 0 0 10px 0.25rem rgba(0, 0, 0, 0.582);
+    box-shadow: 0 0 10px 0.25rem rgba(27, 27, 27, 0.582);
     transition: background 0.25s, border 0.25s, box-shadow 0.25s;
 }
 
@@ -124,6 +124,7 @@ body {
     display:flex;
     flex-direction: column;
     row-gap: 2.5rem;
+    padding-bottom: 20vh;
 }
 
 .user-message {

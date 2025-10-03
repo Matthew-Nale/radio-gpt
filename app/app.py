@@ -11,7 +11,6 @@ def index():
 @app.route('/api/chat', methods=["POST"])
 def chat():
     data = request.get_json()
-    print(data)
     query = {
         'model': 'BaseModel',
         'messages': data["messages"]
