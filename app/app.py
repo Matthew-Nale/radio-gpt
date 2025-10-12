@@ -6,7 +6,11 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return render_template('index.html', isLoggedIn=True, name='Test')
+    return render_template('index.html')
+
+@app.route('/settings')
+def settings():
+    return render_template('settings.html')
 
 @app.route('/api/chat', methods=["POST"])
 def chat():
