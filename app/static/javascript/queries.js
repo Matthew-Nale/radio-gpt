@@ -3,7 +3,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const userQueryInput = document.getElementById('user-query-input');
     const conversationArea = document.getElementById('conversation-area')
     const submitQueryURL = '/api/chat'
-    var isFirstQuery = true;
+    let isFirstQuery = true;
+    let isResponding = false;
 
     userQueryInput.addEventListener('keydown', function(event) {
         if (event.key === "Enter") {
@@ -11,19 +12,40 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    userQueryInput.addEventListener('keydown', function(event) {
-        if (event.key === 'Enter' && userQueryInput.value) {
-
-            if (isFirstQuery) {
-                isFirstQuery = false;
-                queryLocation.style.top = 'auto';
-                queryLocation.style.bottom = '5vh';
-                document.getElementById('welcome-text').remove()
+    function waitForTransitionEnd(element, property = 'transform', timeout = 3000) {
+        return new Promise((resolve) => {
+            const onEnd = (e) => {
+            if (e.propertyName === property) {
+                element.removeEventListener('transitionend', onEnd);
+                clearTimeout(timer);
+                resolve(true);
             }
+            };
+            element.addEventListener('transitionend', onEnd);
+
+            const timer = setTimeout(() => {
+            element.removeEventListener('transitionend', onEnd);
+            resolve(false);
+            }, timeout);
+        });
+    }
+
+    userQueryInput.addEventListener('keydown', async function(event) {
+        if (event.key === 'Enter' && userQueryInput.value && !isResponding) {
 
             createUserMessage(userQueryInput.value)
             const conversation = getConversationHistory();
             userQueryInput.value = '';
+            isResponding = true;
+
+            if (isFirstQuery) {
+                isFirstQuery = false;
+
+                queryLocation.classList.add('moved');
+                document.getElementById('welcome-text')?.remove();
+
+                await waitForTransitionEnd(queryLocation, 'transform');
+            }
 
             axios.post(submitQueryURL, conversation)
             .then(response => response.data)
@@ -59,9 +81,24 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function createResponseMessage(message) {
         const element = document.createElement('div');
-        element.innerHTML = message
         element.setAttribute('class', 'response-message');
         conversationArea.appendChild(element);
+
+        let index = 0;
+        const typingSpeed = 10;
+
+        function typeChar() {
+            element.innerHTML += message.charAt(index);
+            index++;
+
+            if (index < message.length) {
+                setTimeout(typeChar, typingSpeed);
+            } else {
+                isResponding = false;
+            }
+        }
+
+        typeChar();
     }
 
 });

@@ -3,11 +3,12 @@
     <head>
         <title>RadioGPT | Settings</title>
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/settings.css') }}" />
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/navbar.css') }}" />
         <div class="navbar">
             <a class="navbar-logo" href="{{ url_for('index') }}"><img src="/static/images/logo-outline.png"></a>
             <div class="navbar-settings">
                 <a href="{{ url_for('index') }}" class="navbar-settings-link">Login</a>
-                <a href="{{ url_for('settings') }}" class="navbar-settings-link">Settings</a>
+                <span class="selected-navbar-settings-link">Settings</span>
             </div>
         </div>
     </head>
