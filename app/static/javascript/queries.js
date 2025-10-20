@@ -36,6 +36,11 @@ document.addEventListener('DOMContentLoaded', function () {
             createUserMessage(userQueryInput.value)
             const conversation = getConversationHistory();
             userQueryInput.value = '';
+
+            userQueryInput.style.height = 'auto';
+            userQueryInput.style.overflowY = 'hidden';
+            queryLocation.style.transform = 'translateY(40vh)';
+            
             isResponding = true;
 
             if (isFirstQuery) {

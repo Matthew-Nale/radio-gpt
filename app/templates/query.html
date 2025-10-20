@@ -2,7 +2,7 @@
 <html>
     <head>
         <title>RadioGPT</title>
-        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/index.css') }}" />
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/query.css') }}" />
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/navbar.css') }}" />
         <script type= "text/javascript" src="{{ url_for('static',filename='javascript/autoscroll.js') }}"></script>
         <script type= "text/javascript" src="{{ url_for('static',filename='javascript/queries.js') }}"></script>
@@ -16,6 +16,14 @@
         </div>
     </head>
     <body>
+        <h1 id='welcome-text' class="intro-name">RadioGPT</h1>
+        <form id="query">
+            <div id="query-location" class="query-location">
+                <textarea maxlength="2056" id="user-query-input" placeholder="Ask me anything..."></textarea>
+            </div>
+        </form>
+        <div id="conversation-area" class="conversation">
+        </div>
     </body>
 
 </html>

@@ -12,7 +12,7 @@
     container-type: size;
 }
 
-.navbar-settings {
+.navbar-options {
     position: absolute;
     right: 0;
     display: flex;
@@ -22,7 +22,7 @@
     gap: 2vh;
 }
 
-.navbar-settings-link {
+.navbar-option-link {
     position:relative;
     color: rgb(39, 39, 39);
     font-size: 30cqh;
@@ -34,24 +34,11 @@
     text-decoration: none;
 }
 
-.navbar-settings-link:hover {
+.navbar-option-link:hover {
     background: rgb(99, 99, 99);
     border: 10cqh solid rgb(99, 99, 99);
     box-shadow: 0 0 5px 0.25rem rgb(27, 27, 27);
     transition: background 0.5s, border 0.5s, box-shadow 0.5s;
-}
-
-.selected-navbar-settings-link {
-    position:relative;
-    background: rgb(99, 99, 99);
-    font-size: 30cqh;
-    border-radius: 30cqh;
-    border: 10cqh solid rgb(99, 99, 99);
-    color: rgb(228, 228, 228);
-    font-family: sans-serif;
-    font-weight: bold;
-    text-decoration: none;
-    box-shadow: 0 0 5px 0.25rem rgb(27, 27, 27);
 }
 
 .navbar-logo {

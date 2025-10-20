@@ -1,0 +1,105 @@
+body {
+    background-color: rgb(26, 26, 26);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.intro-name {
+    color: rgb(221, 221, 218);
+    text-align: center;
+    font-size: 2rem;
+    font-family: sans-serif;
+    width: auto;
+    top: 35vh;
+    position: fixed;
+}
+
+.query-location {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    width: 35vw;
+    left: 0;
+    right: 0;
+    margin: auto;
+    border-radius: 2rem;
+    padding: 1.4rem 2rem;
+    background: rgb(39, 39, 39);
+    box-shadow: 0 0 1vh 0;
+    z-index: 999;
+    top: 45vh;
+    transition: transform 0.5s ease;
+}
+
+.query-location.moved {
+    transform: translateY(40vh);
+}
+
+#user-query-input {
+    resize: none;
+    overflow-y: hidden;
+    min-height: 5vh;
+    max-height: 20vh;
+    width: 100%;
+    color: rgb(221, 221, 218);
+    font-size: 1rem;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-family: "Verdana";
+    border-radius: 1rem;
+    box-sizing: border-box;
+    transition: height 0.15s ease-out;
+}
+
+.query-location textarea::placeholder {
+  color: #88898a;
+}
+
+.query-location textarea::-webkit-scrollbar {
+    width: 8px;
+}
+.query-location textarea::-webkit-scrollbar-thumb {
+    background-color: rgb(110, 110, 110);
+    border-radius: 20px;
+}
+.query-location textarea::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.conversation {
+    top: 10vh;
+    position: absolute;
+    color: rgb(221, 221, 218);
+    font-size: 1.25rem;
+    font-family: "Verdana";
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 2.5rem;
+    padding-bottom: 20vh;
+}
+
+.user-message,
+.response-message {
+    background: rgb(39, 39, 39);
+    padding: 0.75rem 1.25rem;
+    border-radius: 2rem;
+    max-width: 40rem;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.user-message {
+    margin-left: auto;
+    box-shadow: 0.5rem 0.25rem 1rem 0 rgb(0, 0, 0);
+}
+
+.response-message {
+    margin-right: auto;
+    box-shadow: -0.5rem 0.25rem 1rem 0 rgb(0, 0, 0);
+}
