@@ -22,6 +22,6 @@ pause >nul
 taskkill /IM llama-server.exe /F >nul
 
 docker compose stop
-taskkill /FI "WINDOWTITLE eq MySQL Server" 
+taskkill /FI "WINDOWTITLE eq MySQL Server" >nul
 
 taskkill /FI "WINDOWTITLE eq Flask Backend" >nul
