@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    function waitForTransitionEnd(element, property = 'transform', timeout = 3000) {
+    function waitForTransitionEnd(element, property = 'transform', timeout = 2000) {
         return new Promise((resolve) => {
             const onEnd = (e) => {
             if (e.propertyName === property) {
