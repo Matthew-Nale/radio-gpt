@@ -32,3 +32,13 @@ pip install -r requirements.txt
 echo.
 echo Python dependencies installed.
 echo.
+
+echo.
+where llama-server >nul
+if %ERRORLEVEL% NEQ 0 (
+    echo Installing llama-server...
+
+    winget install llama.cpp
+) else (
+    echo llama-server already installed...
+)
