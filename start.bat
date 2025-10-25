@@ -13,7 +13,7 @@ cd ..
 
 echo Starting Llama Server...
 
-start "Llama Server" llama-server -m gpt/models/BaseModel.gguf
+start "Llama Server" llama-server --chat-template llama3 -m gpt/models/BaseModel.gguf
 
 echo.
 echo Press any key to end all processes...
