@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const queryLocation = document.getElementById('query-location');
     const userQueryInput = document.getElementById('user-query-input');
     const conversationArea = document.getElementById('conversation-area')
-    const submitQueryURL = '/api/chat'
+    const submitQueryURL = '/api/generate'
     let isFirstQuery = true;
     let isResponding = false;
 

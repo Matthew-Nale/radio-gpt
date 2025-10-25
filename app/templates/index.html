@@ -4,14 +4,12 @@
         <title>RadioGPT</title>
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/index.css') }}" />
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/navbar.css') }}" />
-        <script type= "text/javascript" src="{{ url_for('static',filename='javascript/autoscroll.js') }}"></script>
-        <script type= "text/javascript" src="{{ url_for('static',filename='javascript/queries.js') }}"></script>
         <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
         <link rel="icon" type="image/x-icon" href="/static/images/logo-outline.png">
         <div class="navbar">
-            <a class="navbar-logo" href="{{ url_for('index') }}"><img src="/static/images/logo-outline.png"></a>
+            <a class="navbar-logo" href="{{ url_for('main.index') }}"><img src="/static/images/logo-outline.png"></a>
             <div class="navbar-options">
-                <a href="{{ url_for('login') }}" class="navbar-option-link">Login</a>
+                <a href="{{ url_for('auth.login') }}" class="navbar-option-link">Login</a>
             </div>
         </div>
     </head>
