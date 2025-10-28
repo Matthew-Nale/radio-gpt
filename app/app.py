@@ -1,12 +1,9 @@
 from flask import Flask
-from flask_discord import DiscordOAuth2Session
 from dotenv import load_dotenv
 import os
 
-from utils.extensions import mysql
+from utils.extensions import mysql, discord
 from routes import register_routes
-
-discord = DiscordOAuth2Session()
 
 def create_app():
     app = Flask(__name__)

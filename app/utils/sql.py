@@ -16,6 +16,5 @@ def is_whitelisted(discord_id, username):
 
     return bool(result)
 
-
 def store_discord_tokens(id, username, avatar_url, access_token, refresh_token, expires_in):
     return 0

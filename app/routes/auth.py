@@ -1,28 +1,10 @@
 from flask import Blueprint, session, redirect, url_for, render_template, current_app
-from flask_discord import requires_authorization, Unauthorized
+from flask_discord import Unauthorized
 
-from functools import wraps
-
-from utils.sql import store_discord_tokens, is_whitelisted
+from utils.sql import store_discord_tokens
+from utils.auth_utils import requires_whitelisted
 
 auth = Blueprint("auth", __name__)
-
-
-def requires_registration(f):
-    @wraps(f)
-    @requires_authorization
-    def decorated(*args, **kwargs):
-        user_id, username = session.get("user_id"), session.get("discord_username")
-
-        if not user_id:
-            return redirect(url_for("auth.login"))
-        
-        if not is_whitelisted(user_id, username):
-            return "You are not authorized to access this page", 403
-    
-        return f(*args, **kwargs)
-    return decorated
-
 
 @auth.route("/login")
 def login():
@@ -52,7 +34,7 @@ def callback():
 
 
 @auth.route("/chat")
-@requires_registration
+@requires_whitelisted
 def query():
     return render_template("query.html")
 
